@@ -1,9 +1,11 @@
 <?php
 
-include '../model/dbconfig.php';
+include '../model/DbConfig.php';
+
+use WuMingHsueh\SelfAssistant\Model\DbWork\DbConfig;
 
 try {
-    $pdo = new \PDO(DSN, DB_USER , DB_PASSWORD);
+    $pdo = new \PDO(DbConfig::DSN, DbConfig::DB_USER , DbConfig::DB_PASSWORD);
     
 
     $sql = "select * from tea";
@@ -11,6 +13,7 @@ try {
     $result -> execute();
     $data = $result->fetchAll(\PDO::FETCH_ASSOC);
     print_r($data);
+    echo "<hr>".DbConfig::DSN;
 } catch (\Exception $e)
 {
     echo $e->getMessage()."<br>";

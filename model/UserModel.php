@@ -1,32 +1,41 @@
 <?php
-namespace WuMingHsueh\User;
+namespace WuMingHsueh\SelfAssistant\Model\User;
 
-include './dbconfig.php';
+include_once dirname(__FILE__) . '/DbProvider.php';
+use WuMingHsueh\SelfAssistant\Model\DbWork\DbProvider;
 
 class UserModel 
 {
-   private $pdo;
-   private $userId;
-   private $userPwd;
+    private $dbProvider ;
 
-   public function UserModel()
-   {
-       $pdo = new \PDO(DSN ,DB_USER , DB_PASSWORD);
-   }
+    private $userId;
+    private $userPwd;
 
-   public function registerUser(Type $var = null)
-   {
-       # code...
-   }
 
-   public function loginProcess(Type $var = null)
-   {
-       # code...
-   }
+    public function __construct()
+    {
+        $this -> dbProvider = new DbProvider();
+    }
 
-   public function logoutProcess()
+    public function registerUser(Type $var = null)
+    {
+
+    }
+
+    public function loginProcess(Type $var = null)
+    {
+
+    }
+
+    public function logoutProcess()
+    {
+        return DB_USER;
+    }
+
+   public function test()
    {
-        return \DB_USER;
+       return json_encode($this->dbProvider->test(), JSON_UNESCAPED_UNICODE);
+
    }
 }
 ?>
