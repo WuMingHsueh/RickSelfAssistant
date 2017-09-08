@@ -1,1 +1,2 @@
-model/dbconfig.php
+.htaccess
+model/DbConfig.php
