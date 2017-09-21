@@ -1,15 +1,9 @@
 <?php
-namespace WuMingHsueh\SelfAssistant\Model\DbWork;
-
-include_once dirname(__FILE__) . '/DbConfig.php';
-
+namespace WuMingHsueh\SelfAssistant\Model\Database;
 
 class DbProvider 
 {
-    // public function __autoload(Type $var = null)
-    // {
-    //     # code...
-    // }
+    
     private $pdo;
     private $pdoState;
     private $sql;
@@ -35,16 +29,18 @@ class DbProvider
 
     public function test()
     {
-        // $sql = "select * from tea";
-        // $this-> pdoState = $this -> pdo -> prepare($sql);
-        // $this-> pdoState -> execute();
-        // $data = $this-> pdoState -> fetchAll(\PDO::FETCH_ASSOC);
-        // return json_encode($data);
+        $sql = "select * from rental";
+        $this-> pdoState = $this -> pdo -> prepare($sql);
+        $this-> pdoState -> execute();
+        $data = $this-> pdoState -> fetchAll(\PDO::FETCH_ASSOC);
+        return json_encode($data , JSON_UNESCAPED_UNICODE);
+
+        // return "test";
         
-        $parameter[] = ['Name' => 'kobe' , 'Price' => 400 , 'NowTime' => date('Y-m-d H:i:s')];
-        $parameter[] = ['Name' => 'iverson' , 'Price' => 90000 , 'NowTime' => date('Y-m-d H:i:s')];
-        $parameter[] = ['Name' => 'rick' , 'Price' => 3250 , 'NowTime' => date('Y-m-d H:i:s')];
-        $this -> insert( "NameInsert" , ['Name' , 'Price' , 'NowTime'] , $parameter);
+        // $parameter[] = ['Name' => 'kobe' , 'Price' => 400 , 'NowTime' => date('Y-m-d H:i:s')];
+        // $parameter[] = ['Name' => 'iverson' , 'Price' => 90000 , 'NowTime' => date('Y-m-d H:i:s')];
+        // $parameter[] = ['Name' => 'rick' , 'Price' => 3250 , 'NowTime' => date('Y-m-d H:i:s')];
+        // $this -> insert( "NameInsert" , ['Name' , 'Price' , 'NowTime'] , $parameter);
         
     }
 
@@ -119,7 +115,7 @@ class DbProvider
             $this -> pdoState = $this -> pdo -> prepare($sql);
             return ( $this -> pdoState -> execute($parameter) ) ? true : false;
         } catch (\PDOException $e) {
-            die("Error!: " . $e -> getMessage() );
+            return die("Error!: " . $e -> getMessage() );
         }
     }
     

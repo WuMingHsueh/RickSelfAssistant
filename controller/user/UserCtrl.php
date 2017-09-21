@@ -1,5 +1,5 @@
 <?php
-namespace \WuMingHsueh\User;
+namespace WuMingHsueh\SelfAssistant\User;
 
 use \WuMingHsueh\User\UserModel ;
 

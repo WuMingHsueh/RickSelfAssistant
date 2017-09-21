@@ -1,9 +1,9 @@
 <?php
-namespace WuMingHsueh\SelfAssistant\Model\DbWork;
+namespace WuMingHsueh\SelfAssistant\Model\Database;
 
 class DbConfig 
 {
-    CONST DB_HOST = '127.0.0.1';
+    CONST DB_HOST = '';
     CONST DB_USER = '';
     CONST DB_PASSWORD = '';
     CONST DB_NAME = '';

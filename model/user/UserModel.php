@@ -1,8 +1,7 @@
 <?php
 namespace WuMingHsueh\SelfAssistant\Model\User;
 
-include_once dirname(__FILE__) . '/DbProvider.php';
-use WuMingHsueh\SelfAssistant\Model\DbWork\DbProvider;
+use WuMingHsueh\SelfAssistant\Model\Database\DbProvider;
 
 class UserModel 
 {
@@ -34,7 +33,7 @@ class UserModel
 
    public function test()
    {
-       return json_encode($this->dbProvider->test(), JSON_UNESCAPED_UNICODE);
+       echo $this->dbProvider->test();
 
    }
 }

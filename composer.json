@@ -1,0 +1,8 @@
+{
+    "autoload" : {
+        "psr-4" : {
+            "WuMingHsueh\\SelfAssistant\\Model\\" : "Model",
+            "WuMingHsueh\\SelfAssistant\\Controller\\" : "Controller"
+        }
+    }
+}
